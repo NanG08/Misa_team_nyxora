@@ -28,7 +28,7 @@ MISA bridges that gap. It takes raw GPS tracking data, climate records, and worl
 
 ## System Architecture
 
-![SYSTEM ARCHITECTURE](diagrams\sys_archi.png)
+![SYSTEM ARCHITECTURE](sys_archi.png)
 
 ---
 
