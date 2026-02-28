@@ -1,4 +1,4 @@
-\# MISA - AI/ML Model Documentation
+# MISA - AI/ML Model Documentation
 
 
 
@@ -8,7 +8,7 @@
 
 
 
-\*\*An AI-powered platform that tracks, predicts, and explains animal migration patterns for the general public.\*\*
+**An AI-powered platform that tracks, predicts, and explains animal migration patterns for the general public.**
 
 
 
@@ -16,13 +16,13 @@
 
 
 
-\## What It Does
+## What It Does
 
 
 
-Misa uses four ML models working as a single pipeline — from raw GPS tracking data to public-facing story cards explaining \*why\* migrations are changing.
+Misa uses four ML models working as a single pipeline — from raw GPS tracking data to public-facing story cards explaining *why* migrations are changing.
 
-
+![AI/ML FLOW ARCHITECTURE](diagrams/ai_ml_flow.png)
 
 ```
 
@@ -36,13 +36,13 @@ GPS + Climate Data → Route Prediction → Habitat Scoring → Anomaly Detectio
 
 
 
-\## The 4 Models
+## The 4 Models
 
 
 
-\### 1. Route Predictor `route\_predictor.py`
+### 1. Route Predictor `route\_predictor.py`
 
-\*\*Encoder-Decoder LSTM with Bahdanau Attention\*\*
+**Encoder-Decoder LSTM with Bahdanau Attention**
 
 
 
@@ -50,9 +50,9 @@ Takes 30 timesteps of historical GPS + climate data (temperature, wind, sea surf
 
 
 
-\### 2. Habitat Suitability Scorer `habitat\_scorer.py`
+### 2. Habitat Suitability Scorer `habitat\_scorer.py`
 
-\*\*XGBoost Classifier\*\*
+**XGBoost Classifier**
 
 
 
@@ -60,23 +60,23 @@ Scores any geographic grid cell from 0–1 on how suitable it is for a given spe
 
 
 
-\### 3. Anomaly Detector `anomaly\_detector.py`
+### 3. Anomaly Detector `anomaly\_detector.py`
 
-\*\*LSTM Autoencoder\*\*
-
-
-
-Trained only on \*normal\* migration seasons. When a new season produces high reconstruction error, it's flagged as anomalous. Detects route deviations, timing shifts, speed irregularities, and habitat degradation signals. Triggers the story generation pipeline when fired.
+**LSTM Autoencoder**
 
 
 
-\### 4. Story Event Linker `story\_linker.py`
-
-\*\*RAG + LLM API\*\*
+Trained only on *normal* migration seasons. When a new season produces high reconstruction error, it's flagged as anomalous. Detects route deviations, timing shifts, speed irregularities, and habitat degradation signals. Triggers the story generation pipeline when fired.
 
 
 
-Takes an anomaly signal, semantically searches a FAISS vector index of real-world environmental events (droughts, wildfires, deforestation, ocean temperature anomalies), and passes the most relevant events to Claude to generate the public-facing cause-and-effect story cards shown in the \*"Why It's Changing"\* feed.
+### 4. Story Event Linker `story\_linker.py`
+
+**RAG + LLM API**
+
+
+
+Takes an anomaly signal, semantically searches a FAISS vector index of real-world environmental events (droughts, wildfires, deforestation, ocean temperature anomalies), and passes the most relevant events to Claude to generate the public-facing cause-and-effect story cards shown in the *"Why It's Changing"* feed.
 
 
 
@@ -84,7 +84,7 @@ Takes an anomaly signal, semantically searches a FAISS vector index of real-worl
 
 
 
-\## Tech Stack
+## Tech Stack
 
 
 
@@ -110,11 +110,11 @@ Takes an anomaly signal, semantically searches a FAISS vector index of real-worl
 
 
 
-\## AMD Integration
+## AMD Integration
 
 
 
-All PyTorch models run on \*\*AMD Instinct MI300X/MI325X\*\* via the ROCm stack with zero code changes. XGBoost runs on \*\*AMD EPYC 9004\*\* CPUs. The LLM layer uses \*\*AMD Instinct MI355X\*\*. Switch from CUDA to ROCm in one line:
+All PyTorch models run on **AMD Instinct MI300X/MI325X** via the ROCm stack with zero code changes. XGBoost runs on **AMD EPYC 9004** CPUs. The LLM layer uses **AMD Instinct MI355X**. Switch from CUDA to ROCm in one line:
 
 
 
@@ -130,7 +130,7 @@ pip install torch --index-url https://download.pytorch.org/whl/rocm6.0
 
 
 
-\## Quickstart
+## Quickstart
 
 
 
