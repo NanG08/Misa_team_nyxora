@@ -147,18 +147,6 @@ pip install torch --index-url https://download.pytorch.org/whl/rocm6.0
 
 ---
 
-## Roadmap
-
-- [x] Core ML pipeline (all 4 models)
-- [x] Interactive migration map prototype
-- [ ] Movebank live data integration
-- [ ] Real-time news event indexing (GDELT / NewsAPI)
-- [ ] Multi-species simultaneous tracking
-- [ ] Mobile app
-- [ ] Citizen science contribution layer
-- [ ] School & educator toolkit
-
-
 ## License
 
 Apache License — see [LICENSE](LICENSE) for details.
